@@ -1,0 +1,31 @@
+id,pod_name,labels_1,labels_2,labels_3,hostsIp_1,hostsIp_2,hostsIp_3,hostsName_1,hostsName_2,hostsName_3
+ebc0570-df25-539f-9586-aebc5ba7d87a,api-gateway,API gateway,true,v4.2.1,8.8.8.8,192.231.145.152,192.214.132.167,noHostsName,None,None
+dbf0f2a4-4ce4-5776-a7cd-79382dc7fa0b,noPodName,noLabels,None,None,196.127.64.0,None,None,dcrypta.js,None,None
+ff05d4d9-1408-570c-ab28-75ed2d92af78,billing,billing,true,v0.1.0,192.214.132.167,None,None,noHostsName,None,None
+e1ebbd63-1a54-6052-9c53-235a5068cd7f,hashicorp-vault,hashicorp vault,true,v1.3.0,8.8.8.8,None,None,noHostsName,None,None
+4bcd56c0-bec4-5cdd-8908-88ce8faa1704,noPodName,noLabels,None,None,8.8.8.8,None,None,noHostsName,None,None
+86e119e8-461a-52e6-9d5e-c60b0adb67ba,nginx,nginx,true,v9.1.0,8.8.8.8,192.214.132.167,None,noHostsName,None,None
+f773e9cb-93e7-5c5e-bbc9-a09470c15d98,auth,auth,true,v0.7.5,8.8.8.8,192.214.132.167,None,noHostsName,None,None
+592dded1-9e81-5a0c-874f-1b71e7979733,billing,billing,true,v2.1.0,8.8.8.8,192.214.132.167,None,noHostsName,None,None
+81103aea-1463-5cb0-8d46-8385b1db3e09,mail-sender,mail sender,true,v1.5.4,192.214.132.167,None,None,noHostsName,None,None
+1d06446d-9506-59b7-899b-999451d6aec7,kafka,kafka,true,v2.1.0,8.8.8.8,None,None,noHostsName,None,None
+6e12eb75-e0ca-5201-b60f-eff6a0fe4418,noPodName,noLabels,None,None,193.92.5.7,None,None,weather-ydn-yql.media.yahoo.com,None,None
+790f1705-a38e-590e-ac58-f073f43381b8,noPodName,noLabels,None,None,193.92.5.7,None,None,api.wit.ai,None,None
+13174e79-f393-5f23-9f87-aa3c99ef03f2,noPodName,noLabels,None,None,193.92.5.7,None,None,api.crimeometer.com,None,None
+87e5f9f3-25d0-5f96-89c8-7c25910f510c,noPodName,noLabels,None,None,193.92.5.7,None,None,api.aylien.com,None,None
+a3af3180-c314-5d9a-ba51-1e4e79e213d4,noPodName,noLabels,None,None,193.92.5.7,None,None,api.abcam.com,None,None
+f179ee3f-a98a-527a-8af3-6931997aa3dd,noPodName,noLabels,None,None,193.92.5.7,None,None,platform.hootsuite.com,None,None
+a8a8f866-d95c-5ba3-9abf-ab48ef96673f,noPodName,noLabels,None,None,193.92.5.7,None,None,api.mailgun.net,None,None
+889220d7-eda7-5747-8b64-c6b9d93f3aab,noPodName,noLabels,None,None,193.92.5.7,None,None,api.kairos.com,None,None
+2e760a18-7611-5c11-829f-3e732fd95036,cli,cli,true,v1.1.0,192.214.132.167,None,None,noHostsName,None,None
+1d555cea-68d4-5cb6-aa7e-a8038d9642d0,fluentd,fluentd,true,v0.7.2,192.214.132.167,None,None,noHostsName,None,None
+9f9b4ddd-4235-5ab5-9aa7-9032ac5b2787,elastic,elastic,true,v0.7.2,8.8.8.8,None,None,noHostsName,None,None
+7aa80797-57eb-5a54-bde3-f3b4c265a992,fluentd,fluentd,true,v0.7.2,192.214.132.167,None,None,noHostsName,None,None
+41352c22-5a35-5ff3-a727-2ba77eaee227,redis,redis,true,v5.0,8.8.8.8,None,None,noHostsName,None,None
+787a4ab9-a692-55ec-a8b1-cbc059b3ce28,fluentd,fluentd,v2.2,None,192.214.132.167,None,None,noHostsName,None,None
+6cc28a67-8447-5b02-9af1-b104a6a733e2,billing,billing,v2.8.1,None,192.214.132.167,None,None,noHostsName,None,None
+443b4f29-aba3-5c30-bcd1-cfe2a3c94e27,mongodb,mongodb,v4.2,None,8.8.8.8,None,None,noHostsName,None,None
+32d0f1fa-3f2d-5b93-955f-529f8218ad19,charging-service,charging_service,true,v1.5.3,8.8.8.8,192.214.132.167,None,noHostsName,None,None
+a34ed61a-472a-5372-8f03-5db3800e0a6e,fluentd,fluentd,v2.2,None,192.214.132.167,None,None,noHostsName,None,None
+d2b9bd6-3b10-5d26-92a9-d832e354df84,noPodName,noLabels,None,None,192.214.132.167,None,None,noHostsName,None,None
+a4b16e9d-8268-5c06-8508-48fdcae368d1,noPodName,noLabels,None,None,192.119.224.156,None,None,dynamodb.ru-east-1.amazonaws.com,None,None

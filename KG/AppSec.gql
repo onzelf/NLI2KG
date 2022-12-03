@@ -1,0 +1,66 @@
+define
+
+## attributes
+labels    sub attribute, value string;
+pod_name  sub attribute, value string;
+env_name  sub attribute, value string;
+startTime sub attribute, value datetime;
+lastSeen  sub attribute, value datetime;
+app_id    sub attribute, value string;
+con_id    sub attribute, value string;
+appRisk   sub attribute, value string;
+destPort  sub attribute, value double;
+protocol  sub attribute, value string;
+hostsIp   sub attribute, value string;
+hostsName sub attribute, value string;
+env_risk  sub attribute, value string;
+env_id    sub attribute, value string;
+numberOfConnections sub attribute, value double;
+
+## entities
+ownership sub relation,
+   relates owner,
+   relates owned;
+
+connection sub relation,
+    owns con_id,
+    owns startTime,
+    owns  numberOfConnections,
+    owns protocol,
+    owns destPort,
+    relates src,
+    relates dst;
+
+app sub entity,
+   owns app_id,
+   owns lastSeen,
+   owns startTime,
+   owns appRisk,
+   owns hostsIp, owns hostsName,
+   owns labels,
+   plays connection:src,
+   plays connection:dst,
+   plays environment:contained-app,
+   plays app_ownership:owner;
+
+app_ownership sub ownership,
+   relates has_pod as owned;
+
+environment sub relation,
+	owns env_name,
+    owns env_risk,
+    owns env_id,
+	relates contained-app;
+
+pod sub entity,
+    owns pod_name,
+    plays app_ownership:has_pod;
+
+## rules
+rule transitive-connections:
+when {
+       (src:$x, dst:$y) isa connection;
+	   (src:$y, dst:$z) isa connection;
+     } then {
+      (src:$x, dst:$z) isa connection;
+	 };
