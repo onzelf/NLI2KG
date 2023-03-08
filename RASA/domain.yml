@@ -1,0 +1,116 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- connection_data
+- greet
+- query_knowledge_base
+- faq:
+    is_retrieval_intent: true
+- goodbye
+- bot_challenge
+- affirm
+- deny
+entities:
+- mention
+- object_type
+- attribute
+- compare
+- env_name
+- extra
+slots:
+  object_type:
+    type: text
+    influence_conversation: false
+  mention:
+    type: text
+    influence_conversation: false
+  attribute:
+    type: list
+    influence_conversation: false
+  env_name:
+    type: categorical
+    influence_conversation: false
+    values:
+    - Finance
+    - External
+    - DB
+    - Infra
+    - Prod Pii
+    - Prod
+    - Anyone
+  compare:
+    type: text
+    influence_conversation: false
+  extra:
+    type: list
+    influence_conversation: false
+  knowledge_base_listed_objects:
+    type: any
+    influence_conversation: false
+  knowledge_base_last_object_type:
+    type: any
+    influence_conversation: false
+  knowledge_base_last_object:
+    type: any
+    influence_conversation: false
+responses:
+  utter_add_extra:
+  - buttons:
+    - payload: /affirm
+      title: 👍
+    - payload: /deny
+      title: 👎
+    text: adding extra info
+  utter_faq:
+  - text: "this is a faq w/a #7645"
+  utter_faq/show_scn_diagram:
+  - image: C:/Projects_2022/RASA_poc/Rasa_KG/knowledgebasebot_07/html/02_16_29.jpg
+    text: this is the SCN diagram
+  utter_faq/show_kg_schema:
+  - image: C:/Projects_2022/RASA_poc/Rasa_KG/knowledgebasebot_07/html/AS_schema.png
+    text: this is the KG schema.
+  #utter_faq/show_kg_schema:
+  #- image: C:/Projects_2021/RASA_poc/Rasa_KG/knowledgebasebot_06/html/ZOT.pdf
+  #  text: this is a webexteams experiment.
+  utter_faq/environment_attributes:
+  - text: |-
+      "object_type:"environment"
+      "attributes":["id","type","env_id","env_risk","env_name"]
+      "relation":["environment:contained-app"]
+  utter_faq/connection_attributes:
+  - text: |-
+      "object_type":"connection"
+      "attributes":["id","type","con_id","numberOfConnections","protocol","destPort","startTime"]
+      "relation":["connection:src","connection:dst"]
+  utter_faq/application_attributes:
+  - text: |-
+      "object_type":"app"
+      "attributes" :["id","type","app_id","appRisk","hostsName","hostsIp","labels","startTime","lastSeen"]
+      "relation":[]
+  utter_great:
+  - text: Great! 👍
+  - text: That's great! 🙌
+  - text: Awesome! 🎉
+  - text: Cool, let's do it 🚀
+  utter_greet:
+  - text: Hello! How can I help you?
+  - text: Hi! I'm your AppSec Assistant.
+  utter_goodbye:
+  - text: Bye
+  - text: Goodbye. See you soon.
+  - text: Have a nice day.
+  utter_ask_rephrase:
+  - text: My responses are limited, you must ask the right question.
+  - text: My responses are limited, you must ask the right question.
+  utter_iamabot:
+  - text: I am Quorra your bot assistant for AppSec
+
+actions:
+- action_query_knowledge_base
+- action_check_typos
+- action_query_kb_connections
+- utter_faq
+- utter_great
+- utter_greet
