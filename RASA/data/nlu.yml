@@ -1,0 +1,210 @@
+version: "2.0"
+nlu:
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - what questions are you answering ?
+    - do you know networking ?
+    - can you help me ?
+    - do you know with who I can talk?
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - hey there
+    - hello bot
+    - hi bot
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you around
+    - ciao
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: faq/show_scn_diagram
+  examples: |
+    - can you show me the scn diagram
+    - show me the scn diagram
+    - show the diagram
+- intent: faq/show_kg_schema
+  examples: |
+    - can you show me the knowledge graph schema
+    - show me the KG schema
+    - show me the knowledge base schema
+    - show me the schema, please !
+- intent: faq/environment_attributes
+  examples: |
+    - show the environment attributes and relations
+    - show the enviroment relationship
+    - list the enviroment variables, please
+- intent: faq/connection_attributes
+  examples: |
+    - show the connection attributes and relations
+    - show the connection relationships
+    - list the connection attributes, please
+- intent: faq/application_attributes
+  examples: |
+    - show the application attributes and relations
+    - show the application relationships
+    - list the application attributes, please
+ 
+- intent: connection_data
+  examples: |
+    - List all the connections [from Financ]{"entity": "env_name", "role":"from","value": "Finance"} [to External]{"entity": "env_name", "role":"to","value": "External"}
+    - [from DB]{"entity": "env_name", "role":"from","value": "DB"} [to Finance]{"entity": "env_name", "role":"to","value": "Finance"}
+    - [from Finance]{"entity": "env_name", "role":"from","value": "Finance"} [to External]{"entity": "env_name", "role":"to","value": "External"}
+    - [from Infra]{"entity": "env_name", "role":"from","value": "Infra"} [to Finance]{"entity": "env_name", "role":"to","value": "Finance"}
+    - [from prod]{"entity": "env_name", "role":"from","value": "Prod"} [to Prod pii]{"entity": "env_name", "role":"to","value": "Prod Pii"} with [pod name](attribute)
+    - [from prod]{"entity": "env_name", "role":"from","value": "Prod"} [to External]{"entity": "env_name", "role":"to","value": "External"}
+    - [from prod]{"entity": "env_name","role":"from", "value": "Prod"} [to Finance]{"entity": "env_name", "role":"to","value": "Finance"}
+    - [from DB]{"entity": "env_name", "role":"from","value": "DB"} [to Infra]{"entity": "env_name", "role":"to","value": "Infra"}
+    - [from prod]{"entity": "env_name", "role":"from","value": "Prod"} [to prod pii]{"entity": "env_name", "role":"to","value": "Prod Pii"} with [pod name](attribute)
+    - [from Prod pii]{"entity": "env_name", "role":"from","value": "Prod Pii"} [to DB]{"entity": "env_name", "role":"to","value": "DB"}
+    - [from Prod pii]{"entity": "env_name", "role":"from","value": "Prod Pii"} [to prod]{"entity": "env_name","role":"to", "value": "Prod"}
+    - [from Finance]{"entity": "env_name", "role":"from","value": "Finance"} [to External]{"entity": "env_name", "role":"to","value": "External"} with [hostname](attribute)
+    - [from prod pii]{"entity": "env_name", "role":"from","value": "Prod Pii"} to Finance]{"entity": "env_name", "role":"to","value": "Finance"} with [pod name](attribute)
+    - [from Externall]{"entity": "env_name", "role":"from","value": "External"} to prod]{"entity": "env_name", "role":"to","value": "Prod"} with [pod name](attribute)
+    - show connection [from Infra]{"entity": "env_name", "role":"from","value": "Infra"} [to prod]{"entity": "env_name", "role":"to","value": "Prod"}
+    - [from Extrenal]{"entity": "env_name", "role":"from","value": "External"} [to prod]{"entity":"env_name","role":"to", "value": "Prod"} with [pod name](attribute)
+    - show connection [from  Prod Pii]{"entity": "env_name", "role":"from","value": "Prod Pii"} [to prod]{"entity": "env_name", "role":"to","value": "Prod"}
+    - show connections [from   Infra]{"entity": "env_name", "role":"from","value": "Infra"} [to prod]{"entity": "env_name", "role":"to","value": "Prod"}
+    - show connections [from  prod]{"entity":"env_name","role":"from", "value": "Prod"} [to DB]{"entity": "env_name", "role":"to","value": "DB"} with [pod name](attribute)
+    - show connections [from   External]{"entity": "env_name", "role":"from","value": "External"} [to External]{"entity": "env_name", "role":"to","value": "External"}
+    - show connection [from  prod]{"entity": "env_name", "role":"from","value": "Prod"} [to Infra]{"entity": "env_name", "role":"to","value": "Infra"}
+    - show connection [from  prod]{"entity":"env_name","role":"from", "value": "Prod"} [to Finance]{"entity": "env_name", "role":"to","value": "Finance"} with [pod name](attribute)
+    - show connections [from  prod]{"entity": "env_name", "role":"from","value": "Prod"} [to Infra]{"entity": "env_name", "role":"to","value": "Infra"}   
+    - show connection [from  External]{"entity": "env_name", "role":"from","value": "External"} [to Infra]{"entity": "env_name", "role":"to","value": "Infra"}
+    - show connections [from Anyone]{"entity": "env_name", "role":"from","value": "Anyone"} t[o Infra]{"entity": "env_name", "role":"to","value": "Infra"}
+    - show connections [from Infra]{"entity": "env_name", "role":"from","value": "Infra"} [to  Infra]{"entity": "env_name", "role":"to","value": "Infra"} environment
+    - [from Finance]{"entity": "env_name", "role":"from","value": "Finance"} [to prod]{"entity": "env_name", "role":"to","value": "Prod"} with [app risk](attribute)
+    - [from prod]{"entity": "env_name", "role":"from","value": "Prod"} [to Infra]{"entity": "env_name", "role":"to","value": "Infra"} with [pod name](attribute), [app Risk](attribute)
+    - [from prod]{"entity": "env_name", "role":"from","value": "Prod"} [to Finanze]{"entity": "env_name", "role":"to","value": "Finance"} with [pod Name](attribute)
+    - [from [Prod Pii]{"entity": "env_name", "role":"from","value": "Prod Pii"}  [to External]{"entity": "env_name", "role":"to","value": "External"} with [env risk](attribute), [pod name](attribute)
+    - [from DB]{"entity": "env_name", "role":"from","value": "DB"}  [to External]{"entity": "env_name", "role":"to","value": "External"} with [env risk](attribute), (app risk](attribute)
+    - [from DB]{"entity": "env_name", "role":"from","value": "DB"}  [to prod pii]{"entity": "env_name", "role":"to","value": "Prod Pii"} with [pod name](attribute), (app risk](attribute)
+    - Show connections [from Finanze]{"entity": "env_name", "role":"from","value": "Finance"}  [to finance]{"entity": "env_name", "role":"to","value": "Finance"}  with [app Risk](attribute) and [pod Name](attribute)
+ 
+- intent: query_knowledge_base
+  examples: |
+    - [applicati risk]{"entity": "attribute", "value": "appRisk"}
+    - [application id]{"entity": "attribute", "value": "app_id"}
+    - show [application]{"entity": "object_type", "value": "app"} and [application ID]{"entity": "attribute", "value": "app_id"}
+    - [hostsnames]{"entity": "attribute", "value": "hostsName"}
+    - [environment risk]{"entity": "attribute", "value": "env_risk"}
+    - [environment name]{"entity": "attribute", "value": "env_name"}
+    - What [environments]{"entity": "object_type", "value": "environment"} are present ?
+    - List all [environments]{"entity": "object_type", "value": "environment"}.
+    - show [application risk]{"entity": "attribute", "value": "appRisk"} and [environment names]{"entity": "attribute", "value": "env_name"}
+    - show [application id]{"entity": "attribute", "value": "app_id"} and [environment risk]{"entity": "attribute", "value": "env_risk"}
+    - [environment risk]{"entity": "attribute", "value": "env_risk"} and [application risk]{"entity": "attribute", "value": "appRisk"}
+    - [environment name]{"entity": "attribute", "value": "env_name"}
+    - [environment names]{"entity": "attribute", "value": "env_name"}
+    - [pods name]{"entity": "attribute", "value": "pod_name"}.
+    - [pod name]{"entity": "attribute", "value": "pod_name"}
+    - List all [application]{"entity": "object_type", "value": "app"} with the [pod names]{"entity": "attribute", "value": "pod_name"}
+    - the [first]{"entity": "mention", "value": "1"}
+    - the [fourth]{"entity": "mention", "value": "4"}
+    - the [second]{"entity": "mention", "value": "2"}
+    - the [third]{"entity": "mention", "value": "3"}
+    - the [1st]{"entity": "mention", "value": "1"}
+    - the [2nd]{"entity": "mention", "value": "2"}
+    - the [3rd]{"entity": "mention", "value": "3"}
+    - the [4th]{"entity": "mention", "value": "4"}
+    - Show the [environment risk]{"entity": "attribute", "value": "env_risk"} of the [first]{"entity": "mention", "value": "1"} one
+    - Show the [application risk]{"entity": "attribute", "value": "appRisk"} of the [first]{"entity": "mention", "value": "1"} one
+    - What is the [application risk]{"entity": "attribute", "value": "appRisk"} of the [3rd]{"entity": "mention", "value": "3"} one
+    - Tell me the [environment risk]{"entity": "attribute", "value": "env_risk"} of the [second]{"entity": "mention", "value": "2"}
+    - list [applications]{"entity": "object_type", "value": "app"} with [application risk]{"entity": "attribute", "value": "appRisk"}
+    - list [environments]{"entity": "object_type", "value": "environment"} with [environment risk]{"entity": "attribute", "value": "env_risk"}
+    - show [apps]{"entity": "object_type", "value": "app"} in [External](env_name) with [pod names]{"entity": "attribute", "value": "pod_name"}
+    - show [apps]{"entity": "object_type", "value": "app"} in the [External](env_name) environment.
+    - show [apps]{"entity": "object_type", "value": "app"} in [DB](env_name)
+    - show [application]{"entity": "object_type", "value": "app"} in  [DB](env_name)
+    - show [apps]{"entity": "object_type", "value": "app"} in [Prod](env_name)
+    - show [applications]{"entity": "object_type", "value": "app"} in  [prod]{"entity": "env_name", "value": "Prod"}
+    - show [application]{"entity": "object_type", "value": "app"} in [Prod Pii](env_name)
+    - show [applications]{"entity": "object_type", "value": "app"} in [Infra](env_name)
+    - show [applications]{"entity": "object_type", "value": "app"} in  [Infrastructure]{"entity": "env_name", "value": "Infra"}
+    - what [application]{"entity": "object_type", "value": "app"} are in the  [DB](env_name) ?
+    - show [s]{"entity": "object_type", "value": "app"} and [hostnames]{"entity": "attribute", "value": "hostsName"}
+    - show [hostnames]{"entity": "attribute", "value": "hostsName"} for all [applications]{"entity": "object_type", "value": "app"}
+    - show [application]{"entity": "object_type", "value": "app"} and [application risk]{"entity": "attribute", "value": "appRisk"}
+    - show [applications]{"entity": "object_type", "value": "app"} with [number of connections]{"entity": "attribute", "value": "numberOfConnections"}
+    - what [applications]{"entity": "object_type", "value": "app"} has [more]{"entity": "compare", "value": "max"} [nb of connections]{"entity": "attribute", "value": "numberOfConnections"}
+    - show the [application]{"entity": "object_type", "value": "app"} that has [more]{"entity": "compare", "value": "max"} [connections]{"entity": "attribute", "value": "numberOfConnections"}
+    - show in which [application]{"entity": "object_type", "value": "app"} there are  [less]{"entity": "compare", "value": "min"}  [number of connection]{"entity": "attribute", "value": "numberOfConnections"}
+    - in which [application]{"entity": "object_type", "value": "app"} the [number of connection]{"entity": "attribute", "value": "numberOfConnections"} is [higher]{"entity": "compare", "value": "max"}
+    - which [applications]{"entity": "object_type", "value": "app"} have [the same]{"entity": "compare", "value": "eq"} [number of connections]{"entity": "attribute", "value": "numberOfConnections"} ?
+    - show the [number of connection]{"entity": "attribute", "value": "numberOfConnections"} for [applications]{"entity": "object_type", "value": "app"} in [Finance](env_name)
+    - show the [application risk]{"entity": "attribute", "value": "appRisk"} for [applications]{"entity": "object_type", "value": "app"} in [Prod](env_name)
+    - show the [host names]{"entity": "attribute", "value": "hostsName"} for [applications]{"entity": "object_type", "value": "app"} in [External](env_name)
+    - show the [environment risk]{"entity": "attribute", "value": "env_risk"} of the [2nd]{"entity": "mention", "value": "2"}
+    - show the [environment risk]{"entity": "attribute", "value": "env_risk"} and  the [application risk]{"entity": "attribute", "value": "appRisk"} of the [2nd]{"entity": "mention", "value": "2"}
+    - show all [applications]{"entity": "object_type", "value": "app"} in [Finance](env_name)
+    - what [application]{"entity": "object_type", "value": "app"} has [more]{"entity": "compare", "value": "max"} [nb of connections]{"entity": "attribute", "value": "numberOfConnections"} ?
+    - show all the [applications]{"entity": "object_type", "value": "app"} in [Infra](env_name)
+    - show [application]{"entity": "object_type", "value": "app"} with [app id](attribute), [app risk]{"entity": "attribute", "value": "appRisk"} and [environmet names](attribute)'
+
+
+- synonym: '1'
+  examples: |
+    - first
+    - 1st
+- synonym: '4'
+  examples: |
+    - fourth
+    - 4th
+- synonym: '2'
+  examples: |
+    - second
+    - 2nd
+- synonym: '3'
+  examples: |
+    - third
+    - 3rd
+- synonym: numberOfConnections
+  examples: |
+    - number of connections
+    - nb of connections
+    - number of connection
+    - connections number
+- synonym: max
+  examples: |
+    - more
+    - the maximum
+    - top
+- synonym: min
+  examples: |
+    - less
+    - the minimum
+- synonym: eq
+  examples: |
+    - the same
+    - equal to
+- synonym: more
+  examples: |
+    - bigger
+    - greater
+- synonym: less
+  examples: |
+    - smaller
+    - few

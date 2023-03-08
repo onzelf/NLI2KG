@@ -18,19 +18,10 @@ env_id    sub attribute, value string;
 numberOfConnections sub attribute, value double;
 
 ## entities
-ownership sub relation,
-   relates owner,
-   relates owned;
-
-connection sub relation,
-    owns con_id,
-    owns startTime,
-    owns  numberOfConnections,
-    owns protocol,
-    owns destPort,
-    relates src,
-    relates dst;
-
+pod sub entity,
+    owns pod_name,
+    plays app_ownership:has_pod;
+	
 app sub entity,
    owns app_id,
    owns lastSeen,
@@ -43,8 +34,23 @@ app sub entity,
    plays environment:contained-app,
    plays app_ownership:owner;
 
+## relationships   
+ownership sub relation,
+   relates owner,
+   relates owned;
+   
 app_ownership sub ownership,
    relates has_pod as owned;
+   
+   
+connection sub relation,
+    owns con_id,
+    owns startTime,
+    owns  numberOfConnections,
+    owns protocol,
+    owns destPort,
+    relates src,
+    relates dst;
 
 environment sub relation,
 	owns env_name,
@@ -52,9 +58,6 @@ environment sub relation,
     owns env_id,
 	relates contained-app;
 
-pod sub entity,
-    owns pod_name,
-    plays app_ownership:has_pod;
 
 ## rules
 rule transitive-connections:

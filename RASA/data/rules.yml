@@ -1,0 +1,40 @@
+version: "2.0"
+rules:
+  - rule: greet
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: query knowledge base
+    steps:
+      - intent: query_knowledge_base
+      - action: action_check_typos #action_query_knowledge_base  #elf
+
+  - rule: query kb connections
+    steps:
+      - intent: connection_data
+      - action: action_query_kb_connections
+
+ 
+
+  - rule: bot challenge
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: respond to FAQs
+    steps:
+      - intent: faq
+      - action: utter_faq
+
+
+  - rule: Implementation of the Two-Stage-Fallback
+    steps:
+      - intent: nlu_fallback
+      - action: action_two_stage_fallback
+      - active_loop: action_two_stage_fallback

@@ -1,0 +1,23 @@
+version: "2.0"
+stories:
+  - story: greet and then query KG
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: query_knowledge_base
+    - action: action_check_typos   #action_query_knowledge_base  #elf
+
+  - story: great and query KG connections
+    steps:
+    - intent: ingress_egress_kb
+    - action: utter_great
+    - intent: connection_data
+    - action: action_query_kb_connections
+#    - action: utter_slots_values
+
+   
+#- story: explain in FAQ
+#  steps:
+#  - action: action_set_faq_slot
+#  - intent: explain
+#  - action: action_explain_faq
